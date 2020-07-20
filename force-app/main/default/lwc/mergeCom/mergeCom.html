@@ -1,0 +1,48 @@
+<template>
+    <div class="slds-card">
+        <div class="slds-p-around_medium">
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-size_5-of-12">
+                    <lightning-combobox name="inputObj" label="Select an Object Name" options={AllObjectsOptions}
+                        onchange={handleObjects}>
+                    </lightning-combobox>
+                </div>
+            </div>
+            <br />
+            <lightning-button variant="brand" label="Add Object" onclick={saveRecord}></lightning-button>
+        </div>
+        <div class="header">
+            <div class="header-right">
+                <template for:each={ObjName} for:item="name">
+                    <a key={name.Id} data-value={name.Name} onclick={AuditcardBUtton}>
+                        <ul>
+                            <li>
+                                {name.Name}
+                            </li>
+                            
+                        </ul>
+                        
+                    </a>
+                    <a key={name.id}>
+                        <ul>
+                            <li>
+                                <div class="slds-p-top_medium">
+                                    <lightning-icon icon-name="action:delete" access-key={name.Name}
+                                        alternative-text="Delete Row" size="xx-small" title="Delete Row"
+                                        onclick={removeRow}>
+                                    </lightning-icon>
+                                </div>
+                            </li>
+                        </ul>
+                    </a>
+                </template>
+</div>
+</div>
+<div class="slds-m-left_small slds-m-right_small slds-m-bottom_small">
+    <template if:true={Account}>
+                <c-merge-com-child acc-object={selectedName}></c-merge-com-child>
+            </template>
+
+</div>
+</div>
+</template>
